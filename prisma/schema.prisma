@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PitchSession {
+  id          String   @id @default(uuid())
+  userId      String?
+  businessName String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  messages    Message[]
+  deals       Deal[]
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  sessionId String
+  session   PitchSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  sharkId   String
+  role      String
+  content   String   @db.Text
+  timestamp DateTime @default(now())
+  
+  @@index([sessionId])
+}
+
+model Deal {
+  id          String   @id @default(uuid())
+  sessionId   String
+  session     PitchSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  sharkId     String
+  sharkName   String
+  offer       String   @db.Text
+  equity      Float?
+  amount      Float?
+  status      String
+  createdAt   DateTime @default(now())
+  
+  @@index([sessionId])
+}
+
+model SharkMemory {
+  id        String   @id @default(uuid())
+  sharkId   String
+  sessionId String
+  memoryKey String
+  memoryValue String @db.Text
+  createdAt DateTime @default(now())
+  
+  @@unique([sharkId, sessionId, memoryKey])
+  @@index([sharkId, sessionId])
+}
