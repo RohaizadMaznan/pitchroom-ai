@@ -9,9 +9,20 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.2.11",
+    "@langchain/openai": "^1.5.13",
+    "@prisma/client": "^7.10.0",
+    "ai": "^7.0.102",
+    "chromadb": "^3.5.0",
+    "langchain": "^1.5.11",
     "next": "16.3.5",
+    "openai": "^7.15.0",
+    "prisma": "^8.0.0-rc.15",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "uuid": "^14.0.2",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
