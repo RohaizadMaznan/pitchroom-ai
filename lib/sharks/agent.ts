@@ -17,7 +17,10 @@ export class SharkAgent {
     this.model = new ChatOpenAI({
       modelName: 'gpt-4-turbo-preview',
       temperature: 0.8,
-      streaming: true
+      streaming: true,
+      configuration: {
+        baseURL: process.env.OPENAI_API_BASE || 'https://api.openai.com/v1'
+      }
     })
   }
 

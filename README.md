@@ -48,6 +48,8 @@ Edit `.env.local`:
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/pitchroom?schema=public"
 OPENAI_API_KEY="sk-your-key-here"
+OPENAI_API_BASE="https://api.openai.com/v1"
+ASSEMBLYAI_API_KEY="your-assemblyai-key"
 ```
 
 4. Set up the database:

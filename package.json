@@ -15,6 +15,7 @@
     "@langchain/openai": "^1.5.13",
     "@prisma/client": "^7.10.0",
     "ai": "^7.0.102",
+    "assemblyai": "^4.41.1",
     "chromadb": "^3.5.0",
     "langchain": "^1.5.11",
     "next": "16.3.5",
